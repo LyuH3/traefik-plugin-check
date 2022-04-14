@@ -1,0 +1,12 @@
+displayName: Check Plugin
+type: middleware
+
+import: github.com/LyuHe-uestc/traefik-plugin-check
+
+summary: 'github.com/LyuHe-uestc/traefik-plugin-check'
+
+testData:
+  CheckMediaType : "text/plain"
+  CheckCharSet : "utf-8"
+  CheckHeader : "check"
+  CheckHeaderRegExp : "foo.*"
