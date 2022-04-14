@@ -1,0 +1,38 @@
+@startuml
+namespace traefik_plugin_check {
+    class Checker << (S,Aquamarine) >> {
+        - next http.Handler
+        - name string
+        - conf *Config
+
+        + ServeHTTP(rw http.ResponseWriter, req *http.Request) 
+
+    }
+    class Config << (S,Aquamarine) >> {
+        + CheckMediaType string
+        + CheckCharSet string
+
+    }
+    class ResponseWriterWraper << (S,Aquamarine) >> {
+        - w http.ResponseWriter
+        - cmt string
+        - cs string
+        - code int
+        - hd http.Header
+        - buf *bytes.Buffer
+
+        + Write(p []byte) (int, error)
+        + Header() http.Header
+        + WriteHeader(i int) 
+
+    }
+}
+
+
+"traefik_plugin_check.Checker""uses" o-- "http.Handler"
+"traefik_plugin_check.Checker""uses" o-- "traefik_plugin_check.Config"
+"traefik_plugin_check.ResponseWriterWraper""uses" o-- "bytes.Buffer"
+"traefik_plugin_check.ResponseWriterWraper""uses" o-- "http.Header"
+"traefik_plugin_check.ResponseWriterWraper""uses" o-- "http.ResponseWriter"
+
+@enduml

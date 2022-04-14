@@ -1,0 +1,7 @@
+# github.com/klauspost/compress v1.13.0
+## explicit; go 1.13
+github.com/klauspost/compress/flate
+github.com/klauspost/compress/gzhttp
+github.com/klauspost/compress/gzhttp/writer
+github.com/klauspost/compress/gzhttp/writer/gzkp
+github.com/klauspost/compress/gzip
